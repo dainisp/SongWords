@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/images">
+        <file>songwords.png</file>
+        <file>document-open.svg</file>
+        <file>AnotherLooper.svg</file>
+    </qresource>
+</RCC>
