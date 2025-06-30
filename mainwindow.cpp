@@ -28,6 +28,18 @@ MainWindow::MainWindow(QWidget *parent)
     if(settings.contains("songsdir"))
     {
         songsdir = settings.value("songsdir").toString();
+        if(!QFile::exists(songsdir))
+        {
+            if ( QMessageBox::question(this,"Songs file not exist!","You want to pick one?"))
+            {
+                QString songsFileName =   QFileDialog::getOpenFileName(this,"Coose songfile");
+                if(!songsFileName.isEmpty())
+                {
+                    settings.setValue("songsdir",songsFileName);
+                    readSonglist(songsFileName);
+                }
+            }
+        }  else
         readSonglist(songsdir) ;
       //  QMessageBox::information(this,"SongWords","SongsLoaded from " + songsdir);
     }else{
